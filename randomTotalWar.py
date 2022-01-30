@@ -297,11 +297,6 @@ def factionPicker():
 
     gameSubFactionDict = gameDict["sub_faction"]
 
-    if gameCampaign in gameSubFactionDict:
-        gameSubFactionList =gameSubFactionDict[gameCampaign][gameFaction]
-        gameSubFaction = random.choice(gameSubFactionList)
-        print("Sub Faction: " + gameSubFaction)
-    
     print("Game: Total War: " + gameName)
     print("Campaign: " + gameCampaign)
     print("Faction: " + gameFaction)
