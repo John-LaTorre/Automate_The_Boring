@@ -1,8 +1,12 @@
+#Random faction picker for entire Total War series
+import random
 
 shogun = {
     "campaign":["Grand"],
-    "faction": ["Hojo", "Imagawa", "Mori", "Oda", "Shimazu", "Takeda", "Uesugi", "Mongols"],
-    "sub_faction": [""]
+    "faction": {
+        "Grand":  ["Hojo", "Imagawa", "Mori", "Oda", "Shimazu", "Takeda", "Uesugi", "Mongols"]
+    },
+    "sub_faction": {"None": [""]}
 }
 
 medieval = {
@@ -16,7 +20,7 @@ medieval = {
         "Late": ["Almohads", "Aragonese", "Byzantines", "Danes", "Egyptians", "English", "French", "Germans",
          "Hungarians", "Italians", "Polish", "Russians", "Sicilians", "Spanish", "Turkish"]
          },
-    "sub_faction": [""]
+    "sub_faction": {"None": [""]}
 }
 
 rome = {
@@ -28,7 +32,7 @@ rome = {
             "Sassanid Empire", "Roxolani", "Ostrogoths", "Romano-British", "Slavs", "Burgundii", "Berbers", "Alemanni", "Eastern Roman Empire", "Western Roman Empire", "Lombardi"],
         "Alexander": ["Macedon"]
         },
-    "sub_faction": [""]
+    "sub_faction": {"None": [""]}
 }
 
 medieval2 = {
@@ -37,10 +41,10 @@ medieval2 = {
         "Grand": ["England", "France", "Holy Roman Empire", "Spain", "Venice"],
         "Americas": ["New Spain", "Aztec Empire", "Mayans", "Apachean Tribes"],
         "Britannia": ["England", "Wales", "Scotland", "Ireland", "Norway"],
-        "Crusades": ["Kingdom of Jerusalem", "Principality of Antioch", "Byzantine Empire", "Egypt The Turks"],
+        "Crusades": ["Kingdom of Jerusalem", "Principality of Antioch", "Byzantine Empire", "Egypt", "The Turks"],
         "Teutonic": ["Teutonic Order", "Lithuania", "Denmark", "Novgorod"]
         },
-    "sub_faction": [""]
+    "sub_faction": {"None": [""]}
 }
 
 empire = {
@@ -50,7 +54,7 @@ empire = {
         "Ottoman Empire", "Russia", "Sweden", "Maratha Confederacy"],
         "Warpath": ["Iroquois Confederacy", "Huron-Wyandot", "Plains Nations", "Pueblo Nations", "Cherokee Nations"]
         },
-    "sub_faction": [""]
+    "sub_faction": {"None": [""]}
 }
 
 napoleon = {
@@ -59,7 +63,7 @@ napoleon = {
         "Grand": ["Austria", "Great Britain", "Prussia", "Russia", "Napoleon"],
         "Peninsular": ["Spain", "Great Britain", "France"]
         },
-    "sub_faction": [""]
+    "sub_faction": {"None": [""]}
 }
 
 shogun2 = {
@@ -274,3 +278,36 @@ warhammer = {
         }
     }
 }
+
+games = {
+    "Shogun" : shogun, "Medieval": medieval, "Rome: Remastered": rome, "Medieval II": medieval2, "Empire": empire, "Napoleon": napoleon, "Shogun II": shogun2, "Rome II": rome2,
+        "Attila": attila, "Thrones of Britannia": thrones, "Troy": troy, "Three Kingdoms": threeKingdoms, "Warhammer II": warhammer
+}
+
+def factionPicker():
+    gameName = random.choice(list(games))
+
+    gameDict = games[gameName]
+
+    gameCampaign = random.choice(gameDict["campaign"])
+
+    gameFactionList = gameDict["faction"][gameCampaign]
+
+    gameFaction = random.choice(gameFactionList)
+
+    gameSubFactionDict = gameDict["sub_faction"]
+
+    if gameCampaign in gameSubFactionDict:
+        gameSubFactionList =gameSubFactionDict[gameCampaign][gameFaction]
+        gameSubFaction = random.choice(gameSubFactionList)
+        print("Sub Faction: " + gameSubFaction)
+    
+    print("Game: Total War: " + gameName)
+    print("Campaign: " + gameCampaign)
+    print("Faction: " + gameFaction)
+    if gameCampaign in gameSubFactionDict:
+        gameSubFactionList =gameSubFactionDict[gameCampaign][gameFaction]
+        gameSubFaction = random.choice(gameSubFactionList)
+        print("Sub Faction: " + gameSubFaction)
+
+factionPicker()
