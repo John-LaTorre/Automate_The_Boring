@@ -252,13 +252,13 @@ threeKingdoms = {
 }
 
 warhammer = {
-    "campaign":["Mortal Empires"],
+    "campaign":["Immortal Empires"],
     "faction": {
-        "Mortal Empires": ["High Elves", "Lizardmen", "Dark Elves", "Skaven", "Vampire Coast", "Tomb Kings", "The Empire", "Dwarfs", "Greenskins", "Vampire Counts",
-            "Norsca", "Bordeleaux", "Wood Elves", "Beastmen", "Chaos"]
+        "Immortal Empires": ["High Elves", "Lizardmen", "Dark Elves", "Skaven", "Vampire Coast", "Tomb Kings", "The Empire", "Dwarfs", "Greenskins", "Vampire Counts",
+            "Norsca", "Bretonnia", "Wood Elves", "Beastmen", "Warriors of Chaos", "Daemons of Chaos","Grand Cathay", "Khorne", "Kislev", "Nurgle","Ogre Kingdoms", "Slaanesh","Tzeentch"]
         },
     "sub_faction": {
-        "Mortal Empires":
+        "Immortal Empires":
         {
             "High Elves": ["Eataine", "Order of Loremasters", "Avelorn", "Nagarythe", "Yvresse", "Knights of Caledor"],
             "Lizardmen": ["Hexoatl", "Last Defenders", "Cult of Sotek", "Tlaqua", "Spirit of the Jungle", "Itza", "Ghosts of Pahuax"],
@@ -271,22 +271,30 @@ warhammer = {
             "Greenskins": ["Grimgor's Ardboyz", "Crooked Moon", "Bloody Handz", "Broken Axe", "Bonerattlaz"],
             "Vampire Counts": ["Sylvania (Mannfred)", "Sylvania (Helman Ghorst)", "Von Carstein (Vlad)", "Von Carstein (Isabella)", "The Barrow Legion"],
             "Norsca": ["World Walkers", "Wintertooth"],
-            "Bordeleaux": ["Couronne", "Bordeleaux", "Carcassonne", "Chevaliers de Lyonesse"],
+            "Bretonnia": ["Couronne", "Bordeleaux", "Carcassonne", "Chevaliers de Lyonesse"],
             "Wood Elves": ["Talsyn", "Argwylon", "Heralds of Ariel", "Wargrove of Woe"],
             "Beastmen": ["One-eye", "Harbinger of Disaster", "Shadowgave", "Slaughterhorn"], 
-            "Chaos": ["Archaon the Everchosen", "Kholek Suneater", "Prince Sigvald"]
+            "Warriors of Chaos": ["Archaon the Everchosen", "Kholek Suneater", "Prince Sigvald", "Azazel", "Festus the Leechlord", "Valkia the Bloody", "Vilitch the Curseling", "Be'lakor"],
+            "Daemons of Chaos": ["Legion of Chaos"],
+            "Grand Cathay": ["Miao Ying, The Storm Dragon", "Zhao Ying, The Iron Dragon"],
+            "Khorne": ["Exiles of Khorne"],
+            "Kislev": ["The Ice Court", "The Great Orthodoxy"],
+            "Nurgle": ["Poxmakers of Nurgle"],
+            "Ogre Kingdoms": ["Goldtooth", "Skrag the Slaughterer"],
+            "Slaanesh": ["Seducers of Slaanesh"],
+            "Tzeentch": ["Oracles of Tzeentch"],
         }
     }
 }
 
 games = {
     "Shogun" : shogun, "Medieval": medieval, "Rome: Remastered": rome, "Medieval II": medieval2, "Empire": empire, "Napoleon": napoleon, "Shogun II": shogun2, "Rome II": rome2,
-        "Attila": attila, "Thrones of Britannia": thrones, "Troy": troy, "Three Kingdoms": threeKingdoms, "Warhammer II": warhammer
+        "Attila": attila, "Thrones of Britannia": thrones, "Troy": troy, "Three Kingdoms": threeKingdoms, "Warhammer III": warhammer
 }
 
 def factionPicker():
     gameName = random.choice(list(games))
-
+    #gameName = "Warhammer III"
     gameDict = games[gameName]
 
     gameCampaign = random.choice(gameDict["campaign"])
